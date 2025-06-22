@@ -1,0 +1,226 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    transition: background-color 0.5s, color 0.5s;
+    flex-direction: column;
+}
+
+body.light-mode {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+body.dark-mode {
+    background-color: black;
+    color: #f0f0f0;
+}
+
+.main-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+    padding: 0 80px;
+    box-sizing: border-box;
+}
+
+.side-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-self: center;
+    min-width: 150px;
+    text-align: center;
+}
+
+.center-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    flex-grow: 1;
+    padding: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #ff8c42;
+    color: white;
+    transition: background-color 0.3s;
+    width: 100%;
+    max-width: 200px;
+}
+
+button:hover {
+    background-color: #e67a37;
+}
+
+.clock-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.analog-clock-explanation {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.analog-clock {
+    width: 200px;
+    height: 200px;
+    border: 5px solid #888;
+    border-radius: 50%;
+    position: relative;
+    background-color: white;
+    background-image: url('relogio.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.dark-mode .analog-clock {
+    background-color: #555;
+    border-color: #aaa;
+}
+
+.center-dot {
+    width: 10px;
+    height: 10px;
+    background-color: #333;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+
+.hand {
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    transform-origin: bottom center;
+    background-color: black;
+    border-radius: 2px;
+    transform: translateX(-50%) rotate(0deg);
+}
+
+.hour-hand {
+    width: 4px;
+    height: 60px;
+    margin-left: -2px;
+}
+
+.minute-hand {
+    width: 3px;
+    height: 80px;
+    margin-left: -1.5px;
+}
+
+.second-hand {
+    width: 2px;
+    height: 90px;
+    background-color: red;
+    margin-left: -1px;
+}
+
+.digital-display-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+#digital-time {
+    font-size: 3em;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+#current-date {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+.timezone-explanation {
+    text-align: center;
+    font-size: 0.9em;
+    margin-bottom: 10px;
+}
+
+.timezone-selector {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.timezone-selector label {
+    font-size: 1em;
+}
+
+#timezone-select {
+    padding: 8px 12px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: white;
+    color: #333;
+}
+
+.dark-mode #timezone-select {
+    background-color: #444;
+    color: #f0f0f0;
+    border-color: #777;
+}
+
+@media (max-width: 768px) {
+    .main-wrapper {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .side-buttons {
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-around;
+        margin-bottom: 20px;
+        min-width: unset;
+    }
+
+    .side-buttons.left-buttons {
+        order: 1;
+    }
+
+    .side-buttons.right-buttons {
+        order: 3;
+    }
+
+    .center-content {
+        order: 2;
+        width: 100%;
+    }
+
+    button {
+        max-width: 150px;
+    }
+
+    #digital-time {
+        font-size: 2.5em;
+    }
+
+    #current-date {
+        font-size: 1.2em;
+    }
+}
